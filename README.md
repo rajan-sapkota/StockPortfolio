@@ -158,8 +158,9 @@ Insert this manually via MongoDB Compass or your seeder logic.
 ## 👨‍💼 Developer
 
 **Rajan Sapkota**  
-📧 [Your email or portfolio link]  
-🐙 GitHub: [yourusername](https://github.com/yourusername)
+**Simanta Ghimire**
+📧  
+🐙 GitHub: 
 
 ---
 
