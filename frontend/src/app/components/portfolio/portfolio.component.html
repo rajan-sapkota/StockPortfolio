@@ -1,0 +1,7 @@
+<div class="portfolio-wrapper">
+  <h2>📈 My Stock Portfolio</h2>
+
+  <div class="stock-grid">
+    <app-stock-card *ngFor="let symbol of stockSymbols" [symbol]="symbol"></app-stock-card>
+  </div>
+</div>

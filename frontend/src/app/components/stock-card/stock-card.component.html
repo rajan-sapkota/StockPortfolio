@@ -1,0 +1,5 @@
+<div class="card">
+  <h3>{{ symbol }}</h3>
+  <p *ngIf="loading">Loading price...</p>
+  <p *ngIf="!loading">Current Price: ${{ price }}</p>
+</div>
