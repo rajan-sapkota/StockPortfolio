@@ -1,20 +1,35 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
+import * as finnhub from 'finnhub';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StockService {
 
-  private apiKey = environment.twelveDataApiKey;
-  private baseUrl = 'https://api.twelvedata.com';
+  private apiKey = 'cvvg0r9r01qi0bq52sfgcvvg0r9r01qi0bq52sg0';
 
-  constructor(private http: HttpClient) {}
+  private finnhubClient = finnhub.Client({
+    apiKey: this.apiKey
+  });
 
-  getStockPrice(symbol: string): Observable<any> {
-    const url = `${this.baseUrl}/price?symbol=${symbol}&apikey=${this.apiKey}`;
-    return this.http.get<any>(url);
+  constructor() {}
+
+  getCompanyProfile(symbol: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.finnhubClient.companyProfile2({ symbol }, (error: any, data: any, response: any) => {
+        if (error) reject(error);
+        else resolve(data);
+      });
+    });
+  }
+
+  getQuote(symbol: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.finnhubClient.quote(symbol, (error: any, data: any, response: any) => {
+        if (error) reject(error);
+        else resolve(data);
+      });
+    });
   }
 }

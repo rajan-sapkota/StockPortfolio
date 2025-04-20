@@ -5,10 +5,10 @@ import { StockCardComponent } from '../stock-card/stock-card.component';
 @Component({
   selector: 'app-portfolio',
   standalone: true,
-  imports: [CommonModule, StockCardComponent],
+  imports: [CommonModule, StockCardComponent], // ✅ This is key
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.scss']
 })
 export class PortfolioComponent {
-  stockSymbols: string[] = ['AAPL', 'GOOGL', 'MSFT']; // You can add more symbols here
+  stockSymbols = ['AAPL', 'GOOGL', 'TSLA']; // test this with dummy data
 }
